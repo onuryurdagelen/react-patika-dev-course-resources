@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import './App.css';
+import InputExample from './components/InputExample';
+import UseEffectExample from './components/UseEffectExample';
 import User from './props/User';
-import Counter from './re-render/Counter';
+import Counter from './components/Counter';
 
 const friends = [
   {
@@ -23,6 +25,7 @@ const friends = [
 function App() {
   //State tanimlama
   const [name,setName] = useState('Onur');
+  const [isVisible, setIsVisible] = useState(true)
   const [age, setAge] = useState(23);
   const [friends,setFriends] = useState(["Ahmet","Murat"]); // Array State
   const [address,setAddress] = useState({title: "Istanbul",zip:34700})
@@ -53,7 +56,15 @@ function App() {
       <button onClick={() => setAddress({...address,title: "Ankara"})}>Change Address</button>
       <hr />
       <br />
-      <Counter/>
+      {/* <Counter/> */}
+      <hr />
+      <br />
+      <InputExample/>
+      <hr />
+      <br />
+      {/* <UseEffectExample/> */}
+      {isVisible && <Counter/>}
+      <button onClick={() => setIsVisible(!isVisible)}>Toggle Counter</button>
       <>
       {/* <User 
       surname="Yurdagelen" 
