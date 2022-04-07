@@ -3,6 +3,12 @@ import './App.css';
 import InputExample from './components/InputExample';
 import UseEffectExample from './components/UseEffectExample';
 import User from './props/User';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import Counter from './components/Counter';
 
 const friends = [
