@@ -10,6 +10,8 @@ import {
   Link
 } from "react-router-dom";
 import Counter from './components/Counter';
+import Title from './components/Title';
+import FirstRequest from './axios/1-first-request';
 
 const friends = [
   {
@@ -84,6 +86,12 @@ function App() {
       /> */}
       
       </>
+
+      <hr />
+      <br />
+
+      <Title/>
+      <FirstRequest/>
     </div>
   );
 }

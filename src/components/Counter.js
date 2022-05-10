@@ -11,13 +11,13 @@ const Counter = () => {
     //     console.log("State guncellendi...");
     // })
     
-    useEffect(() =>{
-        console.log("Component mount edildi!")
-        const interval = setInterval(() =>{
-            setNumber((a) => a + 1)
-        },1000)
-       return () => clearInterval(interval)
-    },[])
+    // useEffect(() =>{
+    //     console.log("Component mount edildi!")
+    //     const interval = setInterval(() =>{
+    //         setNumber((a) => a + 1)
+    //     },1000)
+    //    return () => clearInterval(interval)
+    // },[])
 
    
     useEffect(() =>{
