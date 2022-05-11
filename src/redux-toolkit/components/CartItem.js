@@ -8,7 +8,6 @@ import { increment,decrement,removeItem } from '../slices/cart-slice'
 const CartItem = ({id,title,price,amount,img}) => {
     const dispatch = useDispatch();
     const {amount: cartAmount} = useSelector(state => state.cart);
-    console.log('amount: ',amount)
    
   return (
     <article className='cart-item' key={id}>
@@ -31,7 +30,7 @@ const CartItem = ({id,title,price,amount,img}) => {
                 if (amount ===1) {
                     dispatch(removeItem(id))
                 }
-                dispatch(decrement())
+                dispatch(decrement(id))
             }} className="amount-btn">
                 <ChevronDown/>
             </button>
