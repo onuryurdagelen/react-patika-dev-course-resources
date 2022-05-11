@@ -38,6 +38,11 @@ const cartSlice = createSlice({
 -create CartContainer.js and CartItem.js
 
 ```js
-import React from 'react'
 
+const actionCreator = (payload) =>{
+    return {type: ACTION_TYPE,payload:payload}
+}
+```
+
+-CartContainer.js
 

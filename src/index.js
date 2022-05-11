@@ -5,11 +5,14 @@ import './index.css';
 import Redux from './Redux';
 import { Provider } from 'react-redux';
 import { store } from './redux-toolkit/store';
+import ClassBasedApp from './ClassBasedApp';
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
     <Redux/>
+
+    {/* <ClassBasedApp/> */}
 
     </Provider>
     {/* <App /> */}
