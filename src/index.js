@@ -6,11 +6,13 @@ import Redux from './Redux';
 import { Provider } from 'react-redux';
 import { store } from './func-based-redux-toolkit/store';
 import ClassBasedApp from './ClassBasedApp';
+import Routing from './Routing';
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-    <Redux/>
+    {/* <Redux/> */}
+    <Routing/>
 
     {/* <ClassBasedApp/> */}
 

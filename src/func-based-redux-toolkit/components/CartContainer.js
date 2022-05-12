@@ -7,14 +7,14 @@ import { calculateTotals,setModal, getCartItems } from '../slices/cart-slice';
 
 const CartContainer = () => {
     const dispatch = useDispatch();
-    const {cartItems,total,amount,isModalOpen,isLoading} = useSelector(state => state.cart);
+    const {cartItems,total,amount,error,isLoading} = useSelector(state => state.cart);
 
     useEffect(()=>{
         dispatch(calculateTotals());
-    },[cartItems])
+    },[])
 
     useEffect(()=>{
-        dispatch(getCartItems());
+        dispatch(getCartItems('random'));
     },[])
 
     if(isLoading){
@@ -34,6 +34,11 @@ const CartContainer = () => {
                 </header>
             </section>
         )
+    }
+    else if (error) {
+        return  <div className="loading">
+        <h1>{error}</h1>
+    </div>
     }
     
   return (
