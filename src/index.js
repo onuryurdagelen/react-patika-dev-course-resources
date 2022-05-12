@@ -4,7 +4,7 @@ import './index.css';
 // import App from './App';
 import Redux from './Redux';
 import { Provider } from 'react-redux';
-import { store } from './redux-toolkit/store';
+import { store } from './func-based-redux-toolkit/store';
 import ClassBasedApp from './ClassBasedApp';
 
 ReactDOM.render(

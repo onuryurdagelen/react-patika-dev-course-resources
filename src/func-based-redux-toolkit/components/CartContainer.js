@@ -1,15 +1,30 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux/es/hooks/useDispatch'
 
 import CartItem from './CartItem'
 import { useSelector } from 'react-redux/es/exports';
-import { clearCart } from '../slices/cart-slice';
+import { calculateTotals,setModal, getCartItems } from '../slices/cart-slice';
 
 const CartContainer = () => {
     const dispatch = useDispatch();
-    const {cartItems,total,amount} = useSelector(state => state.cart);
+    const {cartItems,total,amount,isModalOpen,isLoading} = useSelector(state => state.cart);
 
-    if (amount < 1) {
+    useEffect(()=>{
+        dispatch(calculateTotals());
+    },[cartItems])
+
+    useEffect(()=>{
+        dispatch(getCartItems());
+    },[])
+
+    if(isLoading){
+        return (
+            <div className="loading">
+                <h1>Loading...</h1>
+            </div>
+        )
+    }
+    else if (amount < 1) {
         return (
             <section className="cart">
                 {/* cart header */}
@@ -38,11 +53,12 @@ const CartContainer = () => {
             <hr />
             <div className="cart-total">
                 <h4>
-                    total<span>$ {total}</span>
+                    total<span>${''}{parseFloat(total).toFixed(2)}</span>
                 </h4>
             </div>
             <button className='btn clear-btn' onClick={() => {
-                dispatch(clearCart());
+                dispatch(setModal(true))
+                
             }}>clear cart</button>
         </footer>
     </section>
