@@ -10,6 +10,8 @@ import Products from './react-router/pages/Products';
 import SingleProduct from './react-router/pages/SingleProduct';
 import Login from './react-router/pages/Login';
 import ProtectedRoute from './react-router/pages/ProtectedRoute';
+import SharedProductsLayout from './react-router/pages/SharedProductsLayout';
+
 const Routing = () => {
     const [user, setUser] = useState(null);
   return (
@@ -21,8 +23,10 @@ const Routing = () => {
           ilgili route ile ilgili component varsa o componenti dondurur.
           */}
         <Route path='about' element={<About />} />
-        <Route path='products' element={<Products />} />
-        <Route path='products/:productId' element={<SingleProduct />} />
+        <Route path='products' element={<SharedProductsLayout/>}>
+        <Route index element={<Products />} />
+        <Route path=':productId' element={<SingleProduct />} />
+        </Route>
         <Route path='login' element={<Login setUser={setUser} />} />
         <Route path='dashboard' element={
         <ProtectedRoute user={user}>
